@@ -30,7 +30,8 @@ cp PLAYBOOK.md /path/to/your/repo/
 │       ├── 4_implement_plan.md
 │       ├── 5_save_progress.md
 │       ├── 6_resume_work.md
-│       └── 7_research_cloud.md
+│       ├── 7_research_cloud.md
+│       └── 8_define_test_cases.md
 ├── thoughts/                    # Context storage structure
 │   └── shared/
 │       ├── research/
@@ -88,6 +89,12 @@ The framework follows a structured workflow:
 **Output**: Infrastructure analysis in `thoughts/shared/cloud/`
 **Example**: "Analyze Azure production environment"
 
+### 8️⃣ Define Test Cases (`/8_define_test_cases`)
+**Purpose**: Design acceptance test cases using DSL approach with comment-first structure
+**Usage**: Describe feature to test; agent researches existing test patterns first
+**Output**: Test case definitions in comments + list of required DSL functions
+**Example**: "Define test cases for partner enrollment workflow"
+
 ## 📖 Documentation
 
 - **[PLAYBOOK.md](PLAYBOOK.md)** - Complete guide with examples and best practices
@@ -144,6 +151,21 @@ After installation, customize for your project:
 /7_research_cloud
 > Azure
 > all
+```
+
+## 🧪 Test-Driven Development Example
+
+```markdown
+# 1. Define test cases for a new feature
+/8_define_test_cases
+> Partner enrollment workflow with kit orders
+
+# 2. Implement the DSL functions and tests
+# (Follow the patterns discovered by the agent)
+
+# 3. Implement the actual feature to make tests pass
+/4_implement_plan
+> Implement partner enrollment logic
 ```
 
 ## 📝 License

@@ -26,6 +26,7 @@ The Research-Plan-Implement Framework is a structured approach to AI-assisted so
 - ✅ **Quality Assurance**: Built-in validation at each step
 - 📚 **Knowledge Building**: Documentation accumulates over time
 - ⚡ **Parallel Processing**: Multiple AI agents work simultaneously
+- 🧪 **Test-Driven Development**: Design test cases following existing patterns before implementation
 
 ## Quick Start
 
@@ -44,6 +45,8 @@ cp -r thoughts your-repo/
 - Add project-specific CLAUDE.md
 
 3. **Test the workflow:**
+
+**Standard Approach:**
 ```
 /1_research_codebase
 > How does user authentication work in this codebase?
@@ -53,6 +56,16 @@ cp -r thoughts your-repo/
 
 /4_implement_plan
 > thoughts/shared/plans/two_factor_auth.md
+```
+
+**Test-Driven Approach:**
+```
+/8_define_test_cases
+> Two-factor authentication for user login
+
+# Design tests, then implement feature
+/4_implement_plan
+> Implement 2FA to make tests pass
 ```
 
 ## Framework Architecture
@@ -71,7 +84,8 @@ your-repo/
 │       ├── 4_implement_plan.md
 │       ├── 5_save_progress.md   # Save work session
 │       ├── 6_resume_work.md     # Resume saved work
-│       └── 7_research_cloud.md  # Cloud infrastructure analysis
+│       ├── 7_research_cloud.md  # Cloud infrastructure analysis
+│       └── 8_define_test_cases.md # Design acceptance test cases
 ├── thoughts/                     # Persistent Context Storage
 │   └── shared/
 │       ├── research/            # Research findings
@@ -190,6 +204,56 @@ your-repo/
 - Code review findings
 - Manual testing requirements
 
+### Test-Driven Development (`/8_define_test_cases`)
+
+**Purpose**: Design acceptance test cases before implementation
+
+**Process**:
+1. Invoke command with feature description
+2. AI researches existing test patterns in codebase
+3. Defines test cases in structured comment format
+4. Identifies required DSL functions
+5. Notes which DSL functions exist vs. need creation
+
+**Example**:
+```
+/8_define_test_cases
+> Partner enrollment workflow when ordering kit products
+```
+
+**Output**:
+1. **Test Case Definitions**: All scenarios in comment format:
+```javascript
+// 1. New Customer Orders Partner Kit
+
+// newCustomer
+// partnerKitInCart
+//
+// customerPlacesOrder
+//
+// expectOrderCreated
+// expectPartnerCreatedInExigo
+```
+
+2. **DSL Function List**: Organized by type (setup/action/assertion)
+3. **Pattern Notes**: How tests align with existing patterns
+
+**Test Structure**:
+- Setup phase (arrange state)
+- Blank line
+- Action phase (trigger behavior)
+- Blank line
+- Assertion phase (verify outcomes)
+- No "Given/When/Then" labels - implicit structure
+
+**Coverage Areas**:
+- Happy paths
+- Edge cases
+- Error scenarios
+- Boundary conditions
+- Authorization/permission checks
+
+**Key Principle**: Comment-first approach - design tests as specifications before any implementation.
 
 ## Command Reference
 
@@ -286,6 +350,13 @@ This enables seamless context switching between features or across days/weeks.
 - **Output**: Infrastructure analysis document
 - **Creates**: `thoughts/shared/cloud/` documents
 
+### `/8_define_test_cases`
+- **Purpose**: Design acceptance test cases using DSL approach
+- **Input**: Feature/functionality to test
+- **Output**: Test case definitions in comments + required DSL functions
+- **Approach**: Comment-first, follows existing test patterns
+- **Agent Used**: codebase-pattern-finder (automatic)
+
 ## Agent Reference
 
 ### codebase-locator
@@ -332,6 +403,13 @@ This enables seamless context switching between features or across days/weeks.
 - Spawn multiple agents for research
 - Let them work simultaneously
 - Combine findings for comprehensive view
+
+### 6. Design Tests Early
+- Define test cases before implementing features
+- Follow existing test patterns and DSL conventions
+- Use comment-first approach for test specifications
+- Ensure tests cover happy paths, edge cases, and errors
+- Let tests guide implementation
 
 ## Customization Guide
 
@@ -479,6 +557,40 @@ Analyze cloud deployments without making changes:
 - Architecture patterns
 - Optimization opportunities
 ```
+
+### Test-Driven Development Workflow
+
+Design tests before implementation:
+
+```
+# Step 1: Define test cases
+/8_define_test_cases
+> Partner enrollment when customer orders a kit product
+
+# Output includes:
+# - Test cases in comment format (happy path, edge cases, errors)
+# - List of DSL functions needed (setup/action/assertion)
+# - Existing functions that can be reused
+
+# Step 2: Implement missing DSL functions
+# (Follow patterns discovered by the agent)
+
+# Step 3: Write tests using the defined test cases
+# (Copy comment structure to test files, add function calls)
+
+# Step 4: Create plan for feature implementation
+/2_create_plan
+> Implement partner enrollment logic to make tests pass
+
+# Step 5: Implement the feature
+/4_implement_plan
+> thoughts/shared/plans/partner_enrollment.md
+
+# Step 6: Validate tests pass
+/3_validate_plan
+```
+
+**Key Benefit**: Tests are designed with existing patterns in mind, ensuring consistency across the test suite.
 
 ## Conclusion
 
