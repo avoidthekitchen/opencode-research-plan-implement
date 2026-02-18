@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Claude Code Research-Plan-Implement Framework Setup Script
+# OpenCode Research-Plan-Implement Framework Setup Script
 # This script helps you adopt the framework in your repository
 
 set -e
 
-echo "🚀 Claude Code Framework Setup"
+echo "🚀 OpenCode Framework Setup"
 echo "================================"
 echo ""
 
@@ -22,12 +22,12 @@ if [ ! -d "$TARGET_DIR" ]; then
     exit 1
 fi
 
-# Check if .claude already exists
-if [ -d "$TARGET_DIR/.claude" ]; then
-    echo "ℹ️  .claude directory already exists in $TARGET_DIR"
+# Check if .opencode already exists
+if [ -d "$TARGET_DIR/.opencode" ]; then
+    echo "ℹ️  .opencode directory already exists in $TARGET_DIR"
 
     # Check for existing commands and agents
-    if [ -d "$TARGET_DIR/.claude/commands" ] || [ -d "$TARGET_DIR/.claude/agents" ]; then
+    if [ -d "$TARGET_DIR/.opencode/commands" ] || [ -d "$TARGET_DIR/.opencode/agents" ]; then
         echo "📦 Found existing framework installation"
         echo ""
         echo "What would you like to do?"
@@ -52,8 +52,8 @@ if [ -d "$TARGET_DIR/.claude" ]; then
         esac
     fi
 else
-    # Create .claude if it doesn't exist
-    mkdir -p "$TARGET_DIR/.claude"
+    # Create .opencode if it doesn't exist
+    mkdir -p "$TARGET_DIR/.opencode"
     UPDATE_MODE="false"
 fi
 
@@ -71,8 +71,8 @@ echo ""
 echo "📁 Creating directory structure..."
 
 # Create directories if they don't exist
-mkdir -p "$TARGET_DIR/.claude/agents"
-mkdir -p "$TARGET_DIR/.claude/commands"
+mkdir -p "$TARGET_DIR/.opencode/agents"
+mkdir -p "$TARGET_DIR/.opencode/commands"
 mkdir -p "$TARGET_DIR/thoughts/shared/research"
 mkdir -p "$TARGET_DIR/thoughts/shared/plans"
 mkdir -p "$TARGET_DIR/thoughts/shared/sessions"
@@ -82,36 +82,36 @@ echo "📝 Copying framework files..."
 
 # Copy commands - handle update vs skip mode
 echo "  Installing commands..."
-for cmd_file in .claude/commands/*.md; do
+for cmd_file in .opencode/commands/*.md; do
     filename=$(basename "$cmd_file")
-    if [ -f "$TARGET_DIR/.claude/commands/$filename" ]; then
+    if [ -f "$TARGET_DIR/.opencode/commands/$filename" ]; then
         if [ "$UPDATE_MODE" = "true" ]; then
             # In update mode, overwrite existing files
-            cp "$cmd_file" "$TARGET_DIR/.claude/commands/"
+            cp "$cmd_file" "$TARGET_DIR/.opencode/commands/"
             echo "    🔄 Updated $filename"
         else
             echo "    ⚠️  $filename already exists, skipping..."
         fi
     else
-        cp "$cmd_file" "$TARGET_DIR/.claude/commands/"
+        cp "$cmd_file" "$TARGET_DIR/.opencode/commands/"
         echo "    ✅ Installed $filename"
     fi
 done
 
 # Copy agents - handle update vs skip mode
 echo "  Installing agents..."
-for agent_file in .claude/agents/*.md; do
+for agent_file in .opencode/agents/*.md; do
     filename=$(basename "$agent_file")
-    if [ -f "$TARGET_DIR/.claude/agents/$filename" ]; then
+    if [ -f "$TARGET_DIR/.opencode/agents/$filename" ]; then
         if [ "$UPDATE_MODE" = "true" ]; then
             # In update mode, overwrite existing files
-            cp "$agent_file" "$TARGET_DIR/.claude/agents/"
+            cp "$agent_file" "$TARGET_DIR/.opencode/agents/"
             echo "    🔄 Updated $filename"
         else
             echo "    ⚠️  $filename already exists, skipping..."
         fi
     else
-        cp "$agent_file" "$TARGET_DIR/.claude/agents/"
+        cp "$agent_file" "$TARGET_DIR/.opencode/agents/"
         echo "    ✅ Installed $filename"
     fi
 done
@@ -131,41 +131,41 @@ else
     echo "✅ Installed PLAYBOOK.md"
 fi
 
-# Check if CLAUDE.md exists and offer to append framework section
-if [ -f "$TARGET_DIR/CLAUDE.md" ]; then
+# Check if AGENTS.md exists and offer to append framework section
+if [ -f "$TARGET_DIR/AGENTS.md" ]; then
     echo ""
-    echo "📝 CLAUDE.md Configuration"
+    echo "📝 AGENTS.md Configuration"
     echo "=========================="
     echo ""
-    echo "CLAUDE.md already exists in the target repository."
-    read -p "Would you like to append a section about the Research-Plan-Implement framework commands? (y/N): " APPEND_CLAUDE
+    echo "AGENTS.md already exists in the target repository."
+    read -p "Would you like to append a section about the Research-Plan-Implement framework commands? (y/N): " APPEND_AGENTS
 
-    if [ "$APPEND_CLAUDE" = "y" ] || [ "$APPEND_CLAUDE" = "Y" ]; then
-        echo "" >> "$TARGET_DIR/CLAUDE.md"
-        echo "## Research-Plan-Implement Framework" >> "$TARGET_DIR/CLAUDE.md"
-        echo "" >> "$TARGET_DIR/CLAUDE.md"
-        echo "This repository uses the Research-Plan-Implement framework with the following workflow commands:" >> "$TARGET_DIR/CLAUDE.md"
-        echo "" >> "$TARGET_DIR/CLAUDE.md"
-        echo "1. \`/1_research_codebase\` - Deep codebase exploration with parallel AI agents" >> "$TARGET_DIR/CLAUDE.md"
-        echo "2. \`/2_create_plan\` - Create detailed, phased implementation plans" >> "$TARGET_DIR/CLAUDE.md"
-        echo "3. \`/3_validate_plan\` - Verify implementation matches plan" >> "$TARGET_DIR/CLAUDE.md"
-        echo "4. \`/4_implement_plan\` - Execute plan systematically" >> "$TARGET_DIR/CLAUDE.md"
-        echo "5. \`/5_save_progress\` - Save work session state" >> "$TARGET_DIR/CLAUDE.md"
-        echo "6. \`/6_resume_work\` - Resume from saved session" >> "$TARGET_DIR/CLAUDE.md"
-        echo "7. \`/7_research_cloud\` - Analyze cloud infrastructure (READ-ONLY)" >> "$TARGET_DIR/CLAUDE.md"
-        echo "" >> "$TARGET_DIR/CLAUDE.md"
-        echo "Research findings are saved in \`thoughts/shared/research/\`" >> "$TARGET_DIR/CLAUDE.md"
-        echo "Implementation plans are saved in \`thoughts/shared/plans/\`" >> "$TARGET_DIR/CLAUDE.md"
-        echo "Session summaries are saved in \`thoughts/shared/sessions/\`" >> "$TARGET_DIR/CLAUDE.md"
-        echo "Cloud analyses are saved in \`thoughts/shared/cloud/\`" >> "$TARGET_DIR/CLAUDE.md"
-        echo "✅ Appended framework section to CLAUDE.md"
+    if [ "$APPEND_AGENTS" = "y" ] || [ "$APPEND_AGENTS" = "Y" ]; then
+        echo "" >> "$TARGET_DIR/AGENTS.md"
+        echo "## Research-Plan-Implement Framework" >> "$TARGET_DIR/AGENTS.md"
+        echo "" >> "$TARGET_DIR/AGENTS.md"
+        echo "This repository uses the Research-Plan-Implement framework with the following workflow commands:" >> "$TARGET_DIR/AGENTS.md"
+        echo "" >> "$TARGET_DIR/AGENTS.md"
+        echo "1. \`/1_research_codebase\` - Deep codebase exploration with parallel AI agents" >> "$TARGET_DIR/AGENTS.md"
+        echo "2. \`/2_create_plan\` - Create detailed, phased implementation plans" >> "$TARGET_DIR/AGENTS.md"
+        echo "3. \`/3_validate_plan\` - Verify implementation matches plan" >> "$TARGET_DIR/AGENTS.md"
+        echo "4. \`/4_implement_plan\` - Execute plan systematically" >> "$TARGET_DIR/AGENTS.md"
+        echo "5. \`/5_save_progress\` - Save work session state" >> "$TARGET_DIR/AGENTS.md"
+        echo "6. \`/6_resume_work\` - Resume from saved session" >> "$TARGET_DIR/AGENTS.md"
+        echo "7. \`/7_research_cloud\` - Analyze cloud infrastructure (READ-ONLY)" >> "$TARGET_DIR/AGENTS.md"
+        echo "" >> "$TARGET_DIR/AGENTS.md"
+        echo "Research findings are saved in \`thoughts/shared/research/\`" >> "$TARGET_DIR/AGENTS.md"
+        echo "Implementation plans are saved in \`thoughts/shared/plans/\`" >> "$TARGET_DIR/AGENTS.md"
+        echo "Session summaries are saved in \`thoughts/shared/sessions/\`" >> "$TARGET_DIR/AGENTS.md"
+        echo "Cloud analyses are saved in \`thoughts/shared/cloud/\`" >> "$TARGET_DIR/AGENTS.md"
+        echo "✅ Appended framework section to AGENTS.md"
     else
-        echo "ℹ️  Skipping CLAUDE.md modification"
+        echo "ℹ️  Skipping AGENTS.md modification"
     fi
 else
     echo ""
-    echo "ℹ️  No CLAUDE.md found in target repository."
-    echo "    Consider creating one to provide Claude Code with project-specific guidance."
+    echo "ℹ️  No AGENTS.md found in target repository."
+    echo "    Consider creating one to provide OpenCode with project-specific guidance."
 fi
 
 # Create a sample research template
@@ -174,7 +174,7 @@ echo "📚 Creating sample templates..."
 cat > "$TARGET_DIR/thoughts/shared/research/TEMPLATE.md" << 'EOF'
 ---
 date: YYYY-MM-DD HH:MM:SS
-researcher: Claude
+researcher: OpenCode
 topic: "Research Topic"
 tags: [research, codebase]
 status: complete
@@ -239,7 +239,7 @@ if [ "$UPDATE_MODE" = "true" ]; then
     echo "- Your research documents and plans are preserved"
     echo ""
     echo "💡 To revert changes:"
-    echo "- Use git: 'git checkout -- .claude/'"
+    echo "- Use git: 'git checkout -- .opencode/'"
     echo ""
     echo "📖 To update framework in the future:"
     echo "- Run: ./setup.sh $TARGET_DIR"
@@ -256,8 +256,8 @@ else
     echo "   - /1_research_codebase"
     echo "   - /2_create_plan"
     echo "   - /4_implement_plan"
-    if [ "$APPEND_CLAUDE" = "y" ] || [ "$APPEND_CLAUDE" = "Y" ]; then
-        echo "3. Framework commands have been added to your CLAUDE.md"
+    if [ "$APPEND_AGENTS" = "y" ] || [ "$APPEND_AGENTS" = "Y" ]; then
+        echo "3. Framework commands have been added to your AGENTS.md"
     fi
     echo ""
     echo "💡 Tips:"
