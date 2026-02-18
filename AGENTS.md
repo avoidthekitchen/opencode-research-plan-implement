@@ -1,10 +1,10 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI Coding Agents like OpenCode (https://opencode.ai/) when working with code in this repository.
 
 ## Repository Overview
 
-This is the Claude Code Research-Plan-Implement Framework - a structured workflow framework for AI-assisted software development. The framework emphasizes thorough research, detailed planning, and systematic implementation with persistent documentation.
+This is the OpenCode Research-Plan-Implement Framework - a structured workflow framework for AI-assisted software development. The framework emphasizes thorough research, detailed planning, and systematic implementation with persistent documentation.
 
 ## Commands
 
@@ -14,7 +14,7 @@ This is the Claude Code Research-Plan-Implement Framework - a structured workflo
 ./setup.sh /path/to/target/repo
 
 # Manual installation (from framework repo)
-cp -r .claude /path/to/target/repo/
+cp -r .opencode /path/to/target/repo/
 cp -r thoughts /path/to/target/repo/
 cp PLAYBOOK.md /path/to/target/repo/
 ```
@@ -31,8 +31,8 @@ cp PLAYBOOK.md /path/to/target/repo/
 
 ### Framework Structure
 ```
-claude-research-plan-implement/
-├── .claude/
+opencode-research-plan-implement/
+├── .opencode/
 │   ├── agents/                   # Specialized AI agent definitions
 │   │   ├── codebase-locator.md   # Finds relevant files efficiently
 │   │   ├── codebase-analyzer.md  # Analyzes code implementation details
@@ -54,7 +54,7 @@ claude-research-plan-implement/
 
 1. **Parallel Agent System**: The research phase spawns multiple specialized AI agents that work concurrently to explore different aspects of a codebase, dramatically improving research speed and thoroughness.
 
-2. **Persistent Context Storage**: All research findings, plans, and session summaries are stored as markdown files in the `thoughts/` directory, building a knowledge base over time that persists across Claude sessions.
+2. **Persistent Context Storage**: All research findings, plans, and session summaries are stored as markdown files in the `thoughts/` directory, building a knowledge base over time that persists across Agent sessions.
 
 3. **Phased Workflow**: The numbered commands enforce a structured approach: Research → Plan → Implement → Validate → Save/Resume. Each phase builds on the previous ones.
 
@@ -64,8 +64,8 @@ claude-research-plan-implement/
 
 ### Integration Points
 
-- **Command System**: Each `.claude/commands/*.md` file defines a slash command that modifies Claude's behavior for that specific workflow phase
-- **Agent Definitions**: The `.claude/agents/*.md` files define specialized sub-agents with focused capabilities
+- **Command System**: Each `.opencode/commands/*.md` file defines a slash command that modifies Claude's behavior for that specific workflow phase
+- **Agent Definitions**: The `.opencode/agents/*.md` files define specialized sub-agents with focused capabilities
 - **Settings**: The `settings.local.json` enables specific bash commands (find, ls) needed by the framework
 - **Documentation Templates**: The framework creates template files for research findings and plans to ensure consistency
 
@@ -76,4 +76,4 @@ When this framework is installed in a target repository:
 2. Research findings accumulate in `thoughts/shared/research/`
 3. Implementation plans are saved to `thoughts/shared/plans/`
 4. The framework guides systematic, well-documented development
-5. All context persists between Claude sessions for continuity
+5. All context persists between Agent sessions for continuity
