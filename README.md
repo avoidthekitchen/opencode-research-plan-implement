@@ -1,4 +1,4 @@
-# Claude Code Research-Plan-Implement Framework
+# OpenCode Research-Plan-Implement Framework
 
 A structured workflow framework for AI-assisted software development that emphasizes thorough research, detailed planning, and systematic implementation.
 
@@ -9,7 +9,7 @@ A structured workflow framework for AI-assisted software development that emphas
 ./setup.sh /path/to/your/repo
 
 # Or manually copy files
-cp -r .claude /path/to/your/repo/
+cp -r .opencode /path/to/your/repo/
 cp -r thoughts /path/to/your/repo/
 cp PLAYBOOK.md /path/to/your/repo/
 ```
@@ -17,8 +17,8 @@ cp PLAYBOOK.md /path/to/your/repo/
 ## 📁 What's Included
 
 ```
-.claude-framework-adoption/
-├── .claude/
+.opencode-framework-adoption/
+├── .opencode/
 │   ├── agents/                  # AI agent definitions
 │   │   ├── codebase-locator.md  # Finds relevant files
 │   │   ├── codebase-analyzer.md # Analyzes how code works
@@ -114,7 +114,7 @@ The framework follows a structured workflow:
 After installation, customize for your project:
 
 1. **Edit command files** to match your tooling (test commands, linting, etc.)
-2. **Update CLAUDE.md** with project-specific conventions
+2. **Update AGENTS.md** with project-specific conventions
 3. **Modify agent tools** if needed
 4. **Adjust directory paths** in commands
 
