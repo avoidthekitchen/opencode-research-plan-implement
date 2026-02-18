@@ -1,3 +1,8 @@
+---
+description: resume previously saved rpi work
+agent: build
+---
+
 # Resume Work
 
 You are tasked with resuming previously saved work by restoring full context and continuing implementation.

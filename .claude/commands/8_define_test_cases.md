@@ -1,3 +1,8 @@
+---
+description: define rpi tests
+agent: build
+---
+
 # Define Test Cases Command
 
 You are helping define automated acceptance test cases using a Domain Specific Language (DSL) approach.

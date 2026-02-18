@@ -1,3 +1,8 @@
+---
+description: save rpi progress
+agent: build
+---
+
 # Save Progress
 
 You are tasked with creating a comprehensive progress checkpoint when the user needs to pause work on a feature.

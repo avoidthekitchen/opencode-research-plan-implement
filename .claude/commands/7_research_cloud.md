@@ -1,3 +1,8 @@
+---
+description: research cloud infra
+agent: build
+---
+
 # Research Cloud Infrastructure
 
 You are tasked with conducting comprehensive READ-ONLY analysis of cloud deployments and infrastructure using cloud-specific CLI tools (az, aws, gcloud, etc.).
