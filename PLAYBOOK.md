@@ -1,4 +1,4 @@
-# Claude Code Research-Plan-Implement Framework Playbook
+# OpenCode Research-Plan-Implement Framework Playbook
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -34,15 +34,15 @@ The Research-Plan-Implement Framework is a structured approach to AI-assisted so
 
 1. **Copy framework files to your repository:**
 ```bash
-# From the .claude-framework-adoption directory
-cp -r .claude your-repo/
+# From the .opencode-framework-adoption directory
+cp -r .opencode your-repo/
 cp -r thoughts your-repo/
 ```
 
 2. **Customize for your project:**
-- Edit `.claude/commands/*.md` to match your tooling
+- Edit `.opencode/commands/*.md` to match your tooling
 - Update agent descriptions if needed
-- Add project-specific CLAUDE.md
+- Add project-specific AGENTS.md
 
 3. **Test the workflow:**
 
@@ -72,7 +72,7 @@ cp -r thoughts your-repo/
 
 ```
 your-repo/
-├── .claude/                      # AI Assistant Configuration
+├── .opencode/                      # AI Assistant Configuration
 │   ├── agents/                   # Specialized AI agents
 │   │   ├── codebase-locator.md   # Finds relevant files
 │   │   ├── codebase-analyzer.md  # Analyzes implementation
@@ -96,7 +96,7 @@ your-repo/
 │       │   └── YYYY-MM-DD_*.md
 │       └── cloud/               # Cloud infrastructure analyses
 │           └── platform_*.md
-└── CLAUDE.md                    # Project-specific instructions
+└── AGENTS.md                    # Project-specific instructions
 ```
 
 ## Workflow Phases
@@ -454,7 +454,7 @@ tools: Read, Grep
 You are a security specialist...
 ```
 
-### Project-Specific CLAUDE.md
+### Project-Specific AGENTS.md
 
 Add instructions for your project:
 
