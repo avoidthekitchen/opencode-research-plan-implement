@@ -1,6 +1,6 @@
 # OpenCode Research-Plan-Implement Framework
 
-A structured workflow framework for AI-assisted software development that emphasizes thorough research, detailed planning, and systematic implementation.
+A structured workflow framework for AI-assisted software development that emphasizes thorough research, detailed planning, and systematic implementation. Forked from the Claude Code specific version: https://github.com/brilliantconsultingdev/claude-research-plan-implement
 
 ## 🚀 Quick Start
 
