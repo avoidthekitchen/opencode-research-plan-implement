@@ -31,7 +31,7 @@ Then wait for the user's input.
 2. **Spawn initial research tasks to gather context**:
    - Use codebase-locator to find all related files
    - Use codebase-analyzer to understand current implementation
-   - Use pattern-finder to find similar features to model after
+   - Use codebase-pattern-finder to find similar features to model after
 
 3. **Present informed understanding and focused questions**:
    Based on research, present findings and ask only questions that require human judgment

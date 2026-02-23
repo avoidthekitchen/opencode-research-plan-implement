@@ -31,7 +31,7 @@ Then wait for the user's research query.
 
 3. **Spawn parallel sub-agent tasks for comprehensive research:**
    - Create multiple Task agents to research different aspects concurrently
-   - Use specialized agents like codebase-locator, codebase-analyzer, pattern-finder
+   - Use specialized agents like codebase-locator, codebase-analyzer, codebase-pattern-finder
    - Run multiple agents in parallel when searching for different things
 
 4. **Wait for all sub-agents to complete and synthesize findings:**
